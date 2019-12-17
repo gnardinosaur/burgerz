@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import BurgerItem from './BurgerItem'
 
 const BurgerList = (props) => {
   return (
     <div className="BurgerList">
-      { /* Render Burger Items Here*/ }
+      {props.burgersToRender.map(burger => <BurgerItem key={burger.id} {...burger} showBurger={props.showBurger} />) }
     </div>
   )
 }

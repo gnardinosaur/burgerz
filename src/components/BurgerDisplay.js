@@ -1,18 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 const BurgerDisplay = (props) => {
-  return (
-    <div className="BurgerDisplay">
-      <img src={"" /* Insert burger Image URL here */}/>
-      <br/>
-      <h1>Insert Burger Name Here</h1>
-      <br/>
-      <select onChange={console.log}>
-        <option value="Relatable">Relatable</option>
-        <option value="Bougie">Bougie</option>
-      </select>
-    </div>
-  )
+  
+  if (props.burger) {
+    return (
+      <div className="BurgerDisplay">
+        <img src={props.burger.imgURL} alt=""/>
+        <br/>
+        <h1>{props.burger.name}</h1>
+        <br/>
+        <select onChange={(e) => props.persistCatChange(e, props.burger.id)} value={props.burger.category}>
+          <option value="Relatable">Relatable</option>
+          <option value="Bougie">Bougie</option> 
+        </select>
+      </div>
+    )
+  }
 }
 
 export default BurgerDisplay
